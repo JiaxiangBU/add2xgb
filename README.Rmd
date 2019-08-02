@@ -38,3 +38,8 @@ library(add2xgb)
 ```
 
 Wait.
+
+***
+
+`r add_disclaimer("Roland Stevenson;Jiaxiang Li")`
+

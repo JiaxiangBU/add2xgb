@@ -49,6 +49,20 @@ install()
 use_news_md()
 use_version()
 
+
+# add disclaimer ----------------------------------------------------------
+
+file.edit("DESCRIPTION")
+clipr::write_clip('`r add_disclaimer("Roland Stevenson;Jiaxiang Li")`')
+file.edit("README.Rmd")
+rmarkdown::render("README.Rmd")
+rstudioapi::viewer("README.html")
+file.remove("README.html")
+usethis::use_code_of_conduct()
+
+
+# publish -----------------------------------------------------------------
+
 # git push
 # make public
 use_github_release()
@@ -56,9 +70,3 @@ use_github_release()
 # https://zenodo.org/account/settings/github/
 
 
-# add zenodo citation -----------------------------------------------------
-
-library(devtools)
-use_r("add_zenodo_citation")
-load_all()
-add_zenodo_citation(here::here("../pyks/README.Rmd"))
