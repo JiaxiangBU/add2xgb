@@ -33,6 +33,28 @@ library(add2xgb)
 
 <https://jiaxiangbu.github.io/learn_xgboost/translatein2sql/mtcars_xgboost>
 
+## Citations
+
+Jiaxiang Li. (2019, July 25). JiaxiangBU/pyks: pyks 1.1.3 (Version
+v1.1.3). Zenodo. <http://doi.org/10.5281/zenodo.3351276>
+
+``` bibtex
+@misc{jiaxiang_li_2019_3351276,
+  author       = {Jiaxiang Li},
+  title        = {JiaxiangBU/pyks: pyks 1.1.3},
+  month        = jul,
+  year         = 2019,
+  doi          = {10.5281/zenodo.3351276},
+  url          = {https://doi.org/10.5281/zenodo.3351276}
+}
+```
+
+If you use add2xgb, I would be very grateful if you can add a citation
+in your published work. By citing add2xgb, beyond acknowledging the
+work, you contribute to make it more visible and guarantee its growing
+and sustainability. For citation, please use the BibTex or the citation
+content.
+
 -----
 
 <h4 align="center">

@@ -41,6 +41,26 @@ library(add2xgb)
 
 https://jiaxiangbu.github.io/learn_xgboost/translatein2sql/mtcars_xgboost
 
+## Citations
+
+```{r include=FALSE}
+citations <- add2pkg::add_zenodo_citation("README.Rmd")
+```
+
+```{r echo=FALSE, results='asis'}
+cat(citations$Cite)
+```
+
+```{r echo=FALSE, results='asis'}
+cat(paste0("```BibTex\n",citations$BibTex,"\n```"))
+```
+
+```{r echo=FALSE, results='asis'}
+cat(citations$Comments)
+```
+
+
+
 ***
 
 `r add2pkg::add_disclaimer("Roland Stevenson;Jiaxiang Li")`
