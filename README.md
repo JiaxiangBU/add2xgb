@@ -9,7 +9,9 @@
 <!-- badges: end -->
 
 The goal of add2xgb is to help translate XGBoost model R object into SQL
-statement.
+statement. In production, I translate model file into a
+sixty-thousand-line SQL code and run it into impala within 1 minute.
+Thus, It is fine to do this workflow in the model deployment.
 
 ## Installation
 
@@ -55,6 +57,6 @@ project, you agree to abide by its terms.
 
 <h6 align="center">
 
-MIT © [Roland Stevenson;Jiaxiang Li](LICENSE.md)
+MIT © [Jiaxiang Li](LICENSE.md)
 
 </h6>

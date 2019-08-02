@@ -82,4 +82,4 @@ citations <- add2pkg::add_zenodo_citation("README.Rmd")
 # 需要等一段时间，有时候 doi 没有显示出来
 rmarkdown::render("README.Rmd")
 rstudioapi::viewer("README.html")
-file.remove("README.html")
+safely(file.remove)("README.html")

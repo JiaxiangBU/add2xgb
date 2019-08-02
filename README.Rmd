@@ -19,6 +19,7 @@ knitr::opts_chunk$set(
 <!-- badges: end -->
 
 The goal of add2xgb is to help translate XGBoost model R object into SQL statement.
+In production, I translate model file into a sixty-thousand-line SQL code and run it into impala within 1 minute. Thus, It is fine to do this workflow in the model deployment.
 
 ## Installation
 
