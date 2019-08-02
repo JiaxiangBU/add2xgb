@@ -63,7 +63,7 @@ usethis::use_code_of_conduct()
 
 # publish -----------------------------------------------------------------
 
-# git push
+# push
 # make public
 use_github_release()
 # publish release
