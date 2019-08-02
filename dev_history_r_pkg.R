@@ -1,25 +1,50 @@
+
+# setup -------------------------------------------------------------------
+
+
+
+
 library(devtools)
 use_git()
 
 # https://github.com/JiaxiangBU/add2impala/blob/master/DESCRIPTION
 file.edit("DESCRIPTION")
 library(devtools)
-use_r("add_me")
-use_addin(addin = "add_me")
 
 use_build_ignore("dev_history.R")
 use_roxygen_md()
 use_pipe()
 library(magrittr)
 
-document()
-# load_all()
-install()
+options(usethis.full_name = "Jiaxiang Li")
+use_mit_license()
+
+
+# coding ------------------------------------------------------------------
+
+file.edit("R/xgb_sql_score_query.R")
+file.edit("R/xgb_tree_sql.R")
+# add title
+
+# prettify ----------------------------------------------------------------
+
+use_readme_rmd()
+# help translate XGBoost model R object into SQL statement.
+file.edit("DESCRIPTION")
 rmarkdown::render("README.Rmd")
 file.remove("README.html")
 
-options(usethis.full_name = "Jiaxiang Li")
-use_mit_license()
+
+# build -------------------------------------------------------------------
+
+document()
+# load_all()
+install()
+
+
+# commit
+
+# release -----------------------------------------------------------------
 
 use_news_md()
 use_version()
