@@ -29,7 +29,7 @@ library(add2xgb)
 ## basic example code
 ```
 
-Wait.
+<https://jiaxiangbu.github.io/learn_xgboost/translatein2sql/mtcars_xgboost>
 
 -----
 
