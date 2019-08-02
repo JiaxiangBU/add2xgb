@@ -53,7 +53,7 @@ use_version()
 # add disclaimer ----------------------------------------------------------
 
 file.edit("DESCRIPTION")
-clipr::write_clip('`r add_disclaimer("Roland Stevenson;Jiaxiang Li")`')
+clipr::write_clip('`r add2pkg::add_disclaimer("Roland Stevenson;Jiaxiang Li")`')
 file.edit("README.Rmd")
 rmarkdown::render("README.Rmd")
 rstudioapi::viewer("README.html")
@@ -70,3 +70,16 @@ use_github_release()
 # https://zenodo.org/account/settings/github/
 
 
+# add badge and citation --------------------------------------------------
+
+# login zenodo and copy badge in markdown
+file.edit("README.Rmd")
+clipr::write_clip('## Citations
+
+```{r}
+citations <- add2pkg::add_zenodo_citation("README.Rmd")
+```')
+# 需要等一段时间，有时候 doi 没有显示出来
+rmarkdown::render("README.Rmd")
+rstudioapi::viewer("README.html")
+file.remove("README.html")

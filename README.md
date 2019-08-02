@@ -5,6 +5,7 @@
 
 <!-- badges: start -->
 
+[![DOI](https://zenodo.org/badge/200150014.svg)](https://zenodo.org/badge/latestdoi/200150014)
 <!-- badges: end -->
 
 The goal of add2xgb is to help translate XGBoost model R object into SQL
