@@ -1,3 +1,5 @@
+# add2xgb 0.1.1
+
 * Added the vignette of *XGBoost to SQL*.
 
 # add2xgb 0.1.0
