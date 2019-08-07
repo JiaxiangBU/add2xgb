@@ -1,0 +1,93 @@
+---
+title: "XGBoost to SQL"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{xgb_to_sql}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(add2xgb)
+```
+
+```{r message=FALSE, warning=FALSE}
+library(xgboost)
+library(tidyverse)
+library(whisker)
+```
+
+```{r}
+train_data <- mtcars %>% 
+    rename(y = am)
+```
+
+```{r}
+dtrain <- 
+    xgb.DMatrix(
+        data = as.matrix(
+            train_data %>% select(-y)
+        )
+        ,label = train_data$y
+    )
+```
+
+```{r}
+library(xgboost)
+xgb_model <- xgb.train(
+    data=dtrain,
+    eta = 0.1,
+    max_depth = 15,
+    nround=16,
+    subsample = 0.5,
+    colsample_bytree = 0.5,
+    seed = 1,
+    eval.metric = "auc",
+    # eval.metric = "error",
+    # eval.metric = "logloss",
+    objective = "binary:logistic",
+    # num_class = 12, # set the number of classes. To use only with multiclass objectives.
+    nfold = 100,
+    nthread = 3
+)
+```
+
+```{r}
+model_trees <- jsonlite::fromJSON(
+	xgb.dump(xgb_model, with_stats = FALSE, dump_format='json'), 
+	simplifyDataFrame = FALSE)
+```
+
+```{r}
+feature_dict <- as.list(xgb_model$feature_names)
+```
+
+```{r}
+library(add2xgb)
+body(add2xgb::xgb_tree_sql)
+```
+
+`WHEN {{{split_long}}} < {{{split_condition}}} THEN {{{yes_sql}}}`主要看 dump 文档，这里是**小于**符号
+`q`的书写保证了每个距离差了一`\n`
+
+```{r}
+body(add2xgb::xgb_sql_score_query)
+```
+
+```{r}
+library(whisker)
+queries <- xgb_sql_score_query(
+    model_trees, 
+    'mtcars',
+    feature_dict
+)
+queries
+queries %>% write_file("mtcars_model_code.sql")
+```

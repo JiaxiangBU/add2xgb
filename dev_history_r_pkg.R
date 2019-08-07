@@ -95,3 +95,8 @@ cat(citations$Comments)
 rmarkdown::render("README.Rmd")
 rstudioapi::viewer("README.html")
 safely(file.remove)("README.html")
+
+
+# add vignette ------------------------------------------------------------
+
+use_vignette("xgb_to_sql")
