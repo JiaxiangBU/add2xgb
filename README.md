@@ -31,21 +31,21 @@ library(add2xgb)
 ## basic example code
 ```
 
-<https://jiaxiangbu.github.io/learn_xgboost/translatein2sql/mtcars_xgboost>
+See the vignettes.
 
 ## Citations
 
-Jiaxiang Li. (2019, July 25). JiaxiangBU/pyks: pyks 1.1.3 (Version
-v1.1.3). Zenodo. <http://doi.org/10.5281/zenodo.3351276>
+Jiaxiang Li. (2019, August 2). JiaxiangBU/add2xgb: add2xgb 0.1.0
+(Version v0.1.0). Zenodo. <http://doi.org/10.5281/zenodo.3358328>
 
 ``` bibtex
-@misc{jiaxiang_li_2019_3351276,
+@misc{jiaxiang_li_2019_3358328,
   author       = {Jiaxiang Li},
-  title        = {JiaxiangBU/pyks: pyks 1.1.3},
-  month        = jul,
+  title        = {JiaxiangBU/add2xgb: add2xgb 0.1.0},
+  month        = aug,
   year         = 2019,
-  doi          = {10.5281/zenodo.3351276},
-  url          = {https://doi.org/10.5281/zenodo.3351276}
+  doi          = {10.5281/zenodo.3358328},
+  url          = {https://doi.org/10.5281/zenodo.3358328}
 }
 ```
 
@@ -79,6 +79,6 @@ project, you agree to abide by its terms.
 
 <h6 align="center">
 
-MIT © [Jiaxiang Li](LICENSE.md)
+MIT © [Roland Stevenson;Jiaxiang Li](LICENSE.md)
 
 </h6>
