@@ -49,6 +49,7 @@ install()
 use_news_md()
 file.edit("NEWS.md")
 use_version()
+devtools::github_release()
 
 
 # add disclaimer ----------------------------------------------------------
