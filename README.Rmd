@@ -39,7 +39,7 @@ library(add2xgb)
 ## basic example code
 ```
 
-https://jiaxiangbu.github.io/learn_xgboost/translatein2sql/mtcars_xgboost
+See the vignettes.
 
 ## Citations
 
