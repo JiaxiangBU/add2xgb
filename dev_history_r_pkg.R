@@ -47,6 +47,7 @@ install()
 # release -----------------------------------------------------------------
 
 use_news_md()
+file.edit("NEWS.md")
 use_version()
 
 
@@ -65,6 +66,7 @@ usethis::use_code_of_conduct()
 
 # push
 # make public
+
 use_github_release()
 # publish release
 # https://zenodo.org/account/settings/github/
