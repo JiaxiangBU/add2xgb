@@ -103,3 +103,11 @@ safely(file.remove)("README.html")
 # add vignette ------------------------------------------------------------
 
 use_vignette("xgb_to_sql")
+
+
+# pkgdown -----------------------------------------------------------------
+
+start_time <- lubridate::now()
+pkgdown::build_site()
+end_time <- lubridate::now()
+end_time - start_time
