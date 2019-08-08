@@ -22,6 +22,7 @@ library(add2xgb)
 library(xgboost)
 library(tidyverse)
 library(whisker)
+set.seed(123)
 ```
 
 ```{r}
