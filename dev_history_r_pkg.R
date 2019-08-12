@@ -24,6 +24,7 @@ use_mit_license()
 
 file.edit("R/xgb_sql_score_query.R")
 file.edit("R/xgb_tree_sql.R")
+file.edit("R/ks_metric.R")
 # add title
 
 # prettify ----------------------------------------------------------------
