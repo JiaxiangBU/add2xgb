@@ -1,3 +1,5 @@
+# add2xgb 0.2.0
+
 * Added the function of `ks_metric`.
 * Added the static website built with `pkgdown`.
 
