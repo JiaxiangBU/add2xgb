@@ -1,3 +1,6 @@
+* Added the function of `ks_metric`.
+* Added the static website built with `pkgdown`.
+
 # add2xgb 0.1.1
 
 * Added the vignette of *XGBoost to SQL*.
