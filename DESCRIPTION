@@ -1,5 +1,5 @@
 Package: add2xgb
-Title: Translate XGBoost model R object into SQL statement.
+Title: Add To XGBoost
 Version: 0.2.0
 Authors@R: c(
     person(given = "Roland",

@@ -1,4 +1,9 @@
-#" Generate the score query from xgb object
+#' Generate the score query from xgb object
+#'
+#' The core element of the add2xgb package is an object of the function xgb_sql_score_query.
+#' It contains the process to translate XGBoost tree structure to SQL statements.
+#'
+#' @importFrom whisker whisker.render
 #' @export
 xgb_sql_score_query <- function(list_of_trees, features_table, feature_dict, key_field = "id"){
 
@@ -25,6 +30,6 @@ xgb_sql_score_query <- function(list_of_trees, features_table, feature_dict, key
     FROM {{{features_table}}}
   "
 
-    return(whisker.render(q,swap))
+    return(whisker::whisker.render(q,swap))
 
 }
