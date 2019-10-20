@@ -3,101 +3,65 @@
       id,
       1/(1+exp(-1*( 
       CASE
-        WHEN disp IS NULL THEN 0.09091
-        WHEN disp < 145.850006 THEN 0.09091
-        ELSE -0.125
+        WHEN wt IS NULL THEN 0.432664037
+        WHEN wt < 3.18000007 THEN 0.432664037
+        ELSE -0.354515553
       END
      + 
       CASE
-        WHEN disp IS NULL THEN 0.04883
-        WHEN disp < 145.850006 THEN 0.04883
-        ELSE -0.09932
+        WHEN gear IS NULL THEN -0.351138353
+        WHEN gear < 3.5 THEN -0.351138353
+        ELSE 0.294480026
       END
      + 
       CASE
-        WHEN disp IS NULL THEN 0.11942
-        WHEN disp < 163.800003 THEN 0.11942
-        ELSE -0.10458
+        WHEN wt IS NULL THEN 0.316431433
+        WHEN wt < 3.01250005 THEN 0.316431433
+        ELSE -0.252407461
       END
      + 
       CASE
-        WHEN drat IS NULL THEN -0.11361
-        WHEN drat < 3.38499999 THEN -0.11361
-        ELSE 0.08603
+        WHEN gear IS NULL THEN -0.28817305
+        WHEN gear < 3.5 THEN -0.28817305
+        ELSE 0.207338616
       END
      + 
       CASE
-        WHEN drat IS NULL THEN -0.10771
-        WHEN drat < 3.34500003 THEN -0.10771
-        ELSE 0.04109
+        WHEN wt IS NULL THEN 0.238736823
+        WHEN wt < 3.01250005 THEN 0.238736823
+        ELSE -0.205021918
       END
      + 
       CASE
-        WHEN drat IS NULL THEN -0.12276
-        WHEN drat < 3.80999994 THEN -0.12276
-        ELSE 0.05927
+        WHEN gear IS NULL THEN -0.249552786
+        WHEN gear < 3.5 THEN -0.249552786
+        ELSE 0.158202112
       END
      + 
       CASE
-        WHEN drat IS NULL THEN -0.09372
-        WHEN drat < 3.7750001 THEN -0.09372
-        ELSE 0.0599
+        WHEN wt IS NULL THEN 0.190222457
+        WHEN wt < 3.01250005 THEN 0.190222457
+        ELSE -0.170426115
       END
      + 
       CASE
-        WHEN drat IS NULL THEN -0.07883
-        WHEN drat < 3.78999996 THEN -0.07883
-        ELSE 0.09005
+        WHEN gear IS NULL THEN -0.221233815
+        WHEN gear < 3.5 THEN -0.221233815
+        ELSE 0.125863954
       END
      + 
       CASE
-        WHEN drat IS NULL THEN -0.06069
-        WHEN drat < 3.80000019 THEN -0.06069
-        ELSE 0.08947
+        WHEN qsec IS NULL THEN 0.197545245
+        WHEN qsec < 17.0349998 THEN 0.197545245
+        ELSE -0.14508976
       END
      + 
       CASE
-        WHEN drat IS NULL THEN -0.08274
-        WHEN drat < 3.375 THEN -0.08274
-        ELSE 0.10951
+        WHEN drat IS NULL THEN -0.1180714
+        WHEN drat < 4 THEN -0.1180714
+        ELSE 0.210712895
       END
-     + -0.028 + 
-      CASE
-        WHEN disp IS NULL THEN 0.09559
-        WHEN disp < 163.800003 THEN 0.09559
-        ELSE 
-      CASE
-        WHEN mpg IS NULL THEN -0.0221
-        WHEN mpg < 16.5 THEN -0.0221
-        ELSE -0.09061
-      END
-    
-      END
-     + 
-      CASE
-        WHEN drat IS NULL THEN -0.02058
-        WHEN drat < 3.80000019 THEN -0.02058
-        ELSE 0.08198
-      END
-     + 
-      CASE
-        WHEN disp IS NULL THEN 0.05137
-        WHEN disp < 163.800003 THEN 0.05137
-        ELSE -0.07511
-      END
-     + 
-      CASE
-        WHEN mpg IS NULL THEN -0.04568
-        WHEN mpg < 20.1000004 THEN -0.04568
-        ELSE 0.07914
-      END
-     + 
-      CASE
-        WHEN drat IS NULL THEN -0.09392
-        WHEN drat < 3.73500013 THEN -0.09392
-        ELSE 0.05887
-      END
-     ))) AS score
+     + log(0.40625/(1-0.40625))))) AS score
     -- FROM `mtcars`
     FROM mtcars
   

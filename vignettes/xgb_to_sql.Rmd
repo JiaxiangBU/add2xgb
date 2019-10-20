@@ -44,19 +44,11 @@ dtrain <-
 library(xgboost)
 xgb_model <- xgb.train(
     data=dtrain,
-    eta = 0.1,
-    max_depth = 15,
-    nround=16,
-    subsample = 0.5,
-    colsample_bytree = 0.5,
-    seed = 1,
-    eval.metric = "auc",
-    # eval.metric = "error",
-    # eval.metric = "logloss",
+    nround=10,
+    seed = 1, 
+    max_depth = 1,
     objective = "binary:logistic",
-    # num_class = 12, # set the number of classes. To use only with multiclass objectives.
-    nfold = 100,
-    nthread = 3
+    base_score = mean(train_data$y) # fix uncalibration problem
 )
 ```
 
@@ -83,12 +75,39 @@ body(add2xgb::xgb_sql_score_query)
 ```
 
 ```{r}
-library(whisker)
 queries <- xgb_sql_score_query(
     model_trees, 
     'mtcars',
-    feature_dict
+    feature_dict,
+    base_score = mean(train_data$y)
 )
-queries
+queries %>% cat()
 queries %>% write_file("mtcars_model_code.sql")
+```
+
+```{r}
+pred_from_model <- predict(xgb_model, newdata = dtrain)
+```
+
+```{r}
+library(sqldf)
+pred_from_sql <- 
+read_file("mtcars_model_code.sql") %>% 
+  str_remove("id,") %>% 
+  sqldf() %>% 
+  .$score
+```
+
+```{r}
+library(tidypredict)
+pred_from_tidypredict <- 
+tidypredict_sql(xgb_model, dbplyr::simulate_dbi()) %>% 
+  paste("select ",.," from mtcars") %>% 
+  # cat
+    sqldf() %>% 
+  pull
+```
+
+```{r}
+(pred_from_model-pred_from_sql) %>% abs %>% mean
 ```
