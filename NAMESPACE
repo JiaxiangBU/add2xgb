@@ -3,5 +3,5 @@
 export("%>%")
 export(ks_metric)
 export(xgb_sql_score_query)
-export(xgb_tree_sql)
 importFrom(magrittr,"%>%")
+importFrom(whisker,whisker.render)

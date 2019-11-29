@@ -38,8 +38,9 @@ file.remove("README.html")
 
 # build -------------------------------------------------------------------
 
+library(devtools)
 document()
-# load_all()
+load_all()
 install()
 
 

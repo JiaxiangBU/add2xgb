@@ -27,11 +27,11 @@ xgb_sql_score_query <- function(list_of_trees, features_table, feature_dict, bas
     q <- "
     SELECT
       {{{key_field}}},
-      1/(1+exp(-1*( {{{sum_of_scores}}} + log({{{base_score}}}/(1-{{{base_score}}}))))) AS score
+      1/(1+exp(-1*( {{{sum_of_scores}}} + ln({{{base_score}}}/(1-{{{base_score}}}))))) AS score
     -- FROM `{{{features_table}}}`
     FROM {{{features_table}}}
   "
-
+    # the natural logarithm, use ln() in Impala and Hive
     return(whisker::whisker.render(q,swap))
 
 }
