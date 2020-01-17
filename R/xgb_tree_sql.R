@@ -1,4 +1,5 @@
 #' Translate decision tree into case when statement.
+#' @export
 xgb_tree_sql <- function(tree, feature_dict, sig = 5) {
   # split variables must exist to generate subquery for tree children
   sv <-
